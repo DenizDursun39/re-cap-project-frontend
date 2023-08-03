@@ -1,15 +1,23 @@
-<div role="status">
-  <span class="visually-hidden">Loading...</span>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Arama</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz..."
+  />
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Marka adı</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let brand of brands">
-    <td>{{ brand.id }}</td>
-    <td>{{ brand.brandName }}</td>
-  </tr>
-</table>
+
+<ul class="list-group">
+  <li class="list-group-item" routerLink="/cars">Tüm ürünler</li>
+  <li
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{ brand.id }}"
+    *ngFor="let brand of brands | brandfilter : filterText"
+    [class]="getCurrentBrandClass(brand)"
+  >
+    {{ brand.brandName }}
+  </li>
+</ul>
+<h5 *ngIf="currentBrand">{{ currentBrand.brandName }} seçtiniz</h5>

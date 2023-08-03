@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class BrandService {
   apiUrl = 'https://localhost:44340/api/';
   constructor(private httpClient: HttpClient) {}
-  getCars(): Observable<ListResponseModel<Brand>> {
+  getBrands(): Observable<ListResponseModel<Brand>> {
     let newPath = this.apiUrl + 'Brand/getall';
     return this.httpClient.get<ListResponseModel<Brand>>(newPath);
   }

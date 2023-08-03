@@ -1,3 +1,13 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Arama</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz..."
+  />
+</div>
 <div
   *ngIf="dataLoaded == false"
   class="spinner-border text-danger"
@@ -13,13 +23,19 @@
       <th>Marka Id</th>
       <th>Günlük Fiyat</th>
       <th>Renk Id</th>
+      <th></th>
     </tr>
   </thead>
-  <tr *ngFor="let car of cars">
+  <tr *ngFor="let car of cars | filter : filterText">
     <td>{{ car.id }}</td>
     <td>{{ car.description }}</td>
     <td>{{ car.brandId }}</td>
     <td>{{ car.dailyPrice }}</td>
     <td>{{ car.colorId }}</td>
+    <td>
+      <button (click)="rentACar(car)" type="button" class="btn btn-success">
+        Kirala
+      </button>
+    </td>
   </tr>
 </table>
