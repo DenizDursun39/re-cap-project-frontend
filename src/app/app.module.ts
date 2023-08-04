@@ -17,6 +17,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { BrandfilterPipe } from './pipes/brandfilter.pipe';
 import { ColorfilterPipe } from './pipes/colorfilter.pipe';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     BrandfilterPipe,
     ColorfilterPipe,
     CarAddComponent,
+    BrandAddComponent,
+    ColorAddComponent,
   ],
   imports: [
     BrowserModule,
